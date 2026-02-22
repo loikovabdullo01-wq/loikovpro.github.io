@@ -3,85 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOIK PRO</title>
+    <title>Loikov Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Базовые стили (CSS) */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
-        header { background: #474444; color: white; padding: 1rem 0; text-align: center; }
-        nav { background: #e8491d; color: white; padding: 0.5rem; text-align: center; }
-        nav a { color: white; margin: 0 10px; text-decoration: none; }
-        .container { width: 80%; margin: auto; overflow: hidden; padding: 20px 0; }
-        #showcase { background: #f4f4f4; text-align: center; padding: 50px 0; }
-        #showcase h1 { margin-top: 0; }
-        .services { display: flex; justify-content: space-between; }
-        .box { background: #f9f9f9; padding: 20px; width: 30%; text-align: center; border: 1px solid #ddd; }
-        footer { background: #35424a; color: white; text-align: center; padding: 15px; margin-top: 20px; }
-        /* Адаптивность для мобильных */
-        @media(max-width: 768px) { .services { flex-direction: column; } .box { width: 100%; margin-bottom: 10px; } }
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        .logo-font { font-family: 'Orbitron', sans-serif; }
+        
+        .neon-cyan { text-shadow: 0 0 10px #67e8f9, 0 0 20px #22d3ee, 0 0 40px #06b6d4; }
+        .neon-pink { text-shadow: 0 0 10px #f472b6, 0 0 20px #ec4899, 0 0 40px #db2777; }
+        
+        .gallery-img {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-img:hover {
+            transform: scale(1.08) rotate(1deg);
+            box-shadow: 0 0 35px rgba(103, 232, 249, 0.6);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover no-repeat;
+        }
+        
+        .active-filter {
+            background-color: rgb(103 232 249);
+            color: black;
+            border-color: rgb(103 232 249);
+        }
     </style>
 </head>
-<body>
+<body class="bg-zinc-950 text-zinc-200">
 
-    <header>
-        <h1>LOIKOV PROJECT</h1>
-    </header>
-
-    <nav>
-        <a href="#">Главная</a>
-        <a href="#">Услуги</a>
-        <a href="#">Контакты</a>
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-cyan-500/20">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-cyan-400 to-pink-500 rounded-2xl flex items-center justify-center text-black font-bold text-3xl logo-font shadow-lg">L</div>
+                <div class="leading-none">
+                    <span class="text-3xl font-bold logo-font tracking-widest neon-cyan">LOIKOV</span>
+                    <span class="block text-xs tracking-[3px] text-cyan-400 -mt-1">PROJECT</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#gallery" class="hover:text-cyan-400 transition-colors">ГАЛЕРЕЯ</a>
+                <a href="#about" class="hover:text-cyan-400 transition-colors">О ПРОЕКТЕ</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors">КОНТАКТЫ</a>
+            </div>
+            
+            <a href="https://youtube.com" target="_blank" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-2xl font-semibold hover:scale-105 transition flex items-center gap-2">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+        </div>
     </nav>
 
-    <section id="showcase">
-        <div class="container">
-            <h1>Добро пожаловать на сайт Loikov Project</h1>
-            <p>это мой первый официальный сайт</p>
+    <!-- HERO -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-6xl md:text-8xl font-black logo-font tracking-tighter mb-4 neon-cyan">LOIKOV PROJECT</h1>
+            <p class="text-2xl md:text-3xl text-zinc-400 mb-12">Галерея моих лучших моментов</p>
+            <button onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})" 
+                    class="px-12 py-6 text-xl font-bold bg-white text-black rounded-3xl hover:bg-cyan-400 hover:text-white transition-all">
+                ОТКРЫТЬ ГАЛЕРЕЮ
+            </button>
+        </div>
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-cyan-400 animate-bounce">
+            <i class="fas fa-chevron-down text-4xl"></i>
         </div>
     </section>
 
-    <div class="container">
-        <section id="about">
-            <h2>о нас</h2>
-            <p>Я начинающий веб-разработчик. Помогу вам разработать и запустить интернет-магазин</p>
-        </section>
+    <!-- GALLERY -->
+    <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl font-bold logo-font neon-cyan">ГАЛЕРЕЯ</h2>
+            <p class="text-zinc-400 text-xl mt-3">Кликни на любое фото</p>
+        </div>
 
-        <section class="services">
-            <div class="box">
-                <h3>Услуга 1</h3>
-                <p>Разработка сайтов и веб-приложений (под ключ)</p>
-            </div>
-            <div class="box">
-                <h3>Услуга 2</h3>
-                <p>Дизайн и прототипирование (UI/UX)</p>
-            </div>
-            <div class="box">
-                <h3>Услуга 3</h3>
-                <p>Техническая поддержка и оптимизация</p>
-            </div>
-        </section>
-    </div>
-    <footer>
-     
-        <h4><p style="color: #1363ec;"<a href="https://t.me/+qp-lQILygiU0MTI6">Telegram</a></p></h4>
-        <p>наши контакты: +7 938 540 18 76</p>
-        <p>loik company, &copy; 2026</p>
+        <!-- Фильтры -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12" id="filters">
+            <button onclick="filterGallery('all')" class="active-filter px-8 py-3 rounded-3xl text-sm font-semibold transition">ВСЕ</button>
+            <button onclick="filterGallery('gaming')" class="px-8 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-3xl text-sm font-semibold transition">GAMING</button>
+            <button onclick="filterGallery('irl')" class="px-8 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-3xl text-sm font-semibold transition">IRL</button>
+            <button onclick="filterGallery('art')" class="px-8 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-3xl text-sm font-semibold transition">ART</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 bg-black border-t border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold logo-font neon-pink mb-8">О ПРОЕКТЕ</h2>
+            <p class="text-lg text-zinc-300 leading-relaxed">
+                Привет, я Абдулло (Loikov). Это моя личная галерея — место, где живут лучшие моменты из игр, стримов, путешествий и творчества.
+                Добро пожаловать в мой мир!
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-black border-t border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500">
+            <p>© 2026 Loikov Project • Сделано с любовью к геймингу</p>
+        </div>
     </footer>
 
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="hidden fixed inset-0 bg-black/95 z-[999] items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-5xl text-white hover:text-cyan-400 transition">&times;</button>
+        <img id="lightbox-img" src="" class="max-h-[90vh] max-w-full rounded-3xl shadow-2xl" alt="">
+    </div>
+
+    <script>
+        const images = [
+            { url: "https://picsum.photos/id/1015/800/600", category: "gaming", title: "CS2 Clutch Moment" },
+            { url: "https://picsum.photos/id/201/800/600", category: "gaming", title: "Valorant Ace" },
+            { url: "https://picsum.photos/id/133/800/600", category: "art", title: "Cyberpunk Portrait" },
+            { url: "https://picsum.photos/id/180/800/600", category: "irl", title: "Stream Setup" },
+            { url: "https://picsum.photos/id/1016/800/600", category: "gaming", title: "Tournament Win" },
+            { url: "https://picsum.photos/id/237/800/600", category: "irl", title: "Behind the Scenes" },
+            { url: "https://picsum.photos/id/870/800/600", category: "art", title: "Neon City Art" },
+            { url: "https://picsum.photos/id/106/800/600", category: "gaming", title: "Epic Kill" },
+            { url: "https://picsum.photos/id/251/800/600", category: "irl", title: "LA Night Vibes" }
+       
+        ];
+
+        function renderGallery(filtered = images) {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+            filtered.forEach(img => {
+                const card = document.createElement('div');
+                card.className = 'group relative overflow-hidden rounded-3xl cursor-pointer';
+                card.innerHTML = `
+                    <img src="${img.url}" class="gallery-img w-full aspect-video object-cover" alt="${img.title}">
+                    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
+                        <p class="text-lg font-medium">${img.title}</p>
+                    </div>
+                `;
+                card.onclick = () => openLightbox(img.url);
+                grid.appendChild(card);
+            });
+        }
+
+        function filterGallery(cat) {
+            document.querySelectorAll('#filters button').forEach(b => b.classList.remove('active-filter'));
+            event.currentTarget.classList.add('active-filter');
+
+            if (cat === 'all') renderGallery(images);
+            else renderGallery(images.filter(i => i.category === cat));
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.remove('hidden');
+            document.getElementById('lightbox').classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.add('hidden');
+            lb.classList.remove('flex');
+        }
+
+        // Инициализация
+        window.onload = () => {
+            renderGallery();
+            
+            // Закрытие по клику вне изображения
+            document.getElementById('lightbox').addEventListener('click', e => {
+                if (e.target.id === 'lightbox') closeLightbox();
+            });
+        };
+    </script>
 </body>
 </html>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
-
