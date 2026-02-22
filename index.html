@@ -50,10 +50,9 @@
             <div class="hidden md:flex gap-8 text-sm font-medium">
                 <a href="#gallery" class="hover:text-cyan-400 transition-colors">ГАЛЕРЕЯ</a>
                 <a href="#about" class="hover:text-cyan-400 transition-colors">О ПРОЕКТЕ</a>
-                <a href="#contact" class="hover:text-cyan-400 transition-colors">КОНТАКТЫ</a>
             </div>
             
-            <a href="https://youtube.com" target="_blank" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-2xl font-semibold hover:scale-105 transition flex items-center gap-2">
+            <a href="https://youtube.com/@loikov_project?si=P3Fyu2B-5YvpsJCD" target="_blank" class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-2xl font-semibold hover:scale-105 transition flex items-center gap-2">
                 <i class="fab fa-youtube"></i>
                 <span>YouTube</span>
             </a>
@@ -64,14 +63,11 @@
     <section class="hero-bg min-h-screen flex items-center pt-20">
         <div class="max-w-5xl mx-auto px-6 text-center">
             <h1 class="text-6xl md:text-8xl font-black logo-font tracking-tighter mb-4 neon-cyan">LOIKOV PROJECT</h1>
-            <p class="text-2xl md:text-3xl text-zinc-400 mb-12">Галерея моих лучших моментов</p>
+            <p class="text-2xl md:text-3xl text-zinc-400 mb-12">Мои моменты из реальной жизни</p>
             <button onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})" 
                     class="px-12 py-6 text-xl font-bold bg-white text-black rounded-3xl hover:bg-cyan-400 hover:text-white transition-all">
                 ОТКРЫТЬ ГАЛЕРЕЮ
             </button>
-        </div>
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-cyan-400 animate-bounce">
-            <i class="fas fa-chevron-down text-4xl"></i>
         </div>
     </section>
 
@@ -79,15 +75,13 @@
     <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-6xl font-bold logo-font neon-cyan">ГАЛЕРЕЯ</h2>
-            <p class="text-zinc-400 text-xl mt-3">Кликни на любое фото</p>
+            <p class="text-zinc-400 text-xl mt-3">Кликни на любое фото для увеличения</p>
         </div>
 
-        <!-- Фильтры -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12" id="filters">
+        <!-- Фильтры (все фото теперь IRL) -->
+        <div class="flex justify-center gap-3 mb-12">
             <button onclick="filterGallery('all')" class="active-filter px-8 py-3 rounded-3xl text-sm font-semibold transition">ВСЕ</button>
-            <button onclick="filterGallery('gaming')" class="px-8 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-3xl text-sm font-semibold transition">GAMING</button>
             <button onclick="filterGallery('irl')" class="px-8 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-3xl text-sm font-semibold transition">IRL</button>
-            <button onclick="filterGallery('art')" class="px-8 py-3 bg-zinc-900 hover:bg-zinc-800 rounded-3xl text-sm font-semibold transition">ART</button>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid"></div>
@@ -98,8 +92,7 @@
         <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-5xl font-bold logo-font neon-pink mb-8">О ПРОЕКТЕ</h2>
             <p class="text-lg text-zinc-300 leading-relaxed">
-                Привет, я Абдулло (Loikov). Это моя личная галерея — место, где живут лучшие моменты из игр, стримов, путешествий и творчества.
-                Добро пожаловать в мой мир!
+                Привет, я Абдулло (Loikov). Это моя личная фотогалерея — моменты из города, прогулок, дождливых дней и всего, что мне нравится снимать.
             </p>
         </div>
     </section>
@@ -107,7 +100,7 @@
     <!-- FOOTER -->
     <footer class="py-12 bg-black border-t border-zinc-900">
         <div class="max-w-7xl mx-auto px-6 text-center text-zinc-500">
-            <p>© 2026 Loikov Project • Сделано с любовью к геймингу</p>
+            <p>© 2026 Loikov Project • Сделано с душой</p>
         </div>
     </footer>
 
@@ -119,16 +112,15 @@
 
     <script>
         const images = [
-            { url: "https://picsum.photos/id/1015/800/600", category: "gaming", title: "CS2 Clutch Moment" },
-            { url: "https://picsum.photos/id/201/800/600", category: "gaming", title: "Valorant Ace" },
-            { url: "https://picsum.photos/id/133/800/600", category: "art", title: "Cyberpunk Portrait" },
-            { url: "https://picsum.photos/id/180/800/600", category: "irl", title: "Stream Setup" },
-            { url: "https://picsum.photos/id/1016/800/600", category: "gaming", title: "Tournament Win" },
-            { url: "https://picsum.photos/id/237/800/600", category: "irl", title: "Behind the Scenes" },
-            { url: "https://picsum.photos/id/870/800/600", category: "art", title: "Neon City Art" },
-            { url: "https://picsum.photos/id/106/800/600", category: "gaming", title: "Epic Kill" },
-            { url: "https://picsum.photos/id/251/800/600", category: "irl", title: "LA Night Vibes" }
-       
+            { url: "./images/1.jpg", category: "irl", title: "Поездка в автобусе" },
+            { url: "./images/2.jpg", category: "irl", title: "Современный квартал" },
+            { url: "./images/3.jpg", category: "irl", title: "Здание с колоннами" },
+            { url: "./images/4.jpg", category: "irl", title: "Парковая аллея" },
+            { url: "./images/5.jpg", category: "irl", title: "Танк-памятник ночью" },
+            { url: "./images/6.jpg", category: "irl", title: "Улица в зелени" },
+            { url: "./images/7.jpg", category: "irl", title: "Дождливый перекрёсток" },
+            { url: "./images/8.jpg", category: "irl", title: "Цветная корова" },
+            { url: "./images/9.jpg", category: "irl", title: "Панельки и кусты" }
         ];
 
         function renderGallery(filtered = images) {
@@ -168,11 +160,8 @@
             lb.classList.remove('flex');
         }
 
-        // Инициализация
         window.onload = () => {
             renderGallery();
-            
-            // Закрытие по клику вне изображения
             document.getElementById('lightbox').addEventListener('click', e => {
                 if (e.target.id === 'lightbox') closeLightbox();
             });
